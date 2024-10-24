@@ -1,12 +1,7 @@
----
 - name: Un playbook muy muy sencillo
   # A quienes se les va a operar 
   hosts: web
   tasks:
-    - name: Dame un mensaje
-      ansible.builtin.debug:
-        msg: "Bienvenido al mundo de Ansible"
-        
     - name: Actualizar todos los paquetes
       yum:
         name: '*'
