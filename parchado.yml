@@ -1,6 +1,8 @@
+---
 - name: Un playbook muy muy sencillo
   # A quienes se les va a operar 
   hosts: web
+  became: yes
   tasks:
     - name: Actualizar todos los paquetes
       yum:
