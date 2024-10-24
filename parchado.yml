@@ -4,18 +4,12 @@
   hosts: web
   tasks:
     - name: Actualizar todos los paquetes
-      yum:
+      ansible.builtin.dfn:
         name: '*'
         state: latest
-
-    - name: Limpiar caché de YUM
-      yum:
-        name: '*'
-        state: latest
-        update_only: yes
-        autoremove: yes
-
-    - name: Reiniciar el sistema si es necesario
-      reboot:
-        msg: "Reiniciando el sistema después de la actualización."
-        test: yes
+      register: salida_dnf
+      
+    - name: rebootear
+      ansible.builtin.reboot:
+        name: needsrestart
+     
