@@ -6,12 +6,7 @@
     - name: Dame un mensaje
       ansible.builtin.debug:
         msg: "Bienvenido al mundo de Ansible"
-
----
-- name: Parchear sistemas Red Hat
-  hosts: redhat
-  become: yes
-  tasks:
+        
     - name: Actualizar todos los paquetes
       yum:
         name: '*'
@@ -28,5 +23,3 @@
       reboot:
         msg: "Reiniciando el sistema después de la actualización."
         test: yes
-
-        
